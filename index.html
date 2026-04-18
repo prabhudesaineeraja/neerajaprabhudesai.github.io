@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neeraja | Portfolio</title>
+  <style>
+    :root {
+      --bg: #fff7e8;
+      --panel: rgba(255, 255, 255, 0.72);
+      --panel-strong: rgba(255, 255, 255, 0.9);
+      --border: rgba(162, 101, 43, 0.16);
+      --text: #3e2d1c;
+      --muted: #7c634f;
+      --accent: #ef7d57;
+      --accent-2: #f3b13f;
+      --accent-3: #ffcc66;
+      --accent-4: #f6a7c1;
+      --accent-5: #8ed1c2;
+      --accent-6: #b997f6;
+      --shadow: 0 20px 60px rgba(120, 66, 15, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --transition: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      --max: 1280px;
+      --font-main: "Inter", "Avenir Next", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255, 204, 102, 0.65), transparent 20%),
+        radial-gradient(circle at 88% 18%, rgba(246, 167, 193, 0.35), transparent 20%),
+        radial-gradient(circle at 78% 86%, rgba(142, 209, 194, 0.28), transparent 18%),
+        linear-gradient(140deg, #fff8ec 0%, #fff0d5 48%, #fff7e8 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+      position: relative;
+    }
+
+    .decorative-sun {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff7c0 0%, #ffd36b 45%, #f6af46 100%);
+      box-shadow: 0 0 0 18px rgba(255, 211, 107, 0.18), 0 0 0 36px rgba(255, 211, 107, 0.08);
+      opacity: 0.9;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .decorative-wave,
+    .decorative-bindi,
+    .decorative-note {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.22;
+      z-index: 0;
+      font-weight: 700;
+    }
+
+    .decorative-wave {
+      left: 24px;
+      top: 140px;
+      font-size: 78px;
+      color: var(--accent);
+      transform: rotate(-6deg);
+    }
+
+    .decorative-bindi {
+      right: 120px;
+      bottom: 130px;
+      font-size: 110px;
+      color: var(--accent-6);
+    }
+
+    .decorative-note {
+      left: 50%;
+      bottom: 30px;
+      font-size: 74px;
+      color: var(--accent-5);
+      transform: translateX(-50%) rotate(8deg);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .hero-card,
+    .toggle-zone,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: -16px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.75), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.64);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      max-width: 9ch;
+    }
+
+    .gradient-word {
+      background: linear-gradient(135deg, #d96d52, #ef9f41 40%, #af78ef 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      font-size: 1.04rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 18px 0 22px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(162, 101, 43, 0.08);
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .profile-card {
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 4.6;
+      border-radius: 28px;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,0.72), rgba(255,255,255,0.35)),
+        linear-gradient(135deg, rgba(239, 125, 87, 0.22), rgba(243, 177, 63, 0.22), rgba(142, 209, 194, 0.22));
+      border: 1.5px dashed rgba(162, 101, 43, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      color: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.55);
+    }
+
+    .photo-placeholder {
+      position: relative;
+      z-index: 1;
+      font-size: 1rem;
+      line-height: 1.65;
+      max-width: 16ch;
+      font-weight: 600;
+    }
+
+    .name-block h2 {
+      margin: 0 0 6px;
+      font-size: 1.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .name-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.98rem;
+    }
+
+    .icon-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .icon-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(162, 101, 43, 0.1);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      box-shadow: 0 8px 20px rgba(120, 66, 15, 0.08);
+    }
+
+    .icon-link:hover,
+    .icon-link:focus-visible {
+      transform: translateY(-4px);
+      background: #fff;
+      box-shadow: 0 12px 26px rgba(120, 66, 15, 0.12);
+      outline: none;
+    }
+
+    .icon-link svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: var(--text);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .toggle-zone {
+      position: relative;
+      z-index: 1;
+      border-radius: 999px;
+      padding: 18px;
+      margin: 4px auto 24px;
+      display: flex;
+      justify-content: center;
+      width: min(760px, calc(100% - 10px));
+    }
+
+    .toggle-track {
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(162, 101, 43, 0.08);
+    }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: calc(50% - 8px);
+      height: calc(100% - 16px);
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(243, 177, 63, 0.96), rgba(239, 125, 87, 0.92));
+      box-shadow: 0 8px 20px rgba(239, 125, 87, 0.24);
+      transition: transform var(--transition);
+      z-index: 0;
+    }
+
+    .toggle-track.personal .toggle-thumb {
+      transform: translateX(calc(100% + 8px));
+      background: linear-gradient(135deg, rgba(142, 209, 194, 0.98), rgba(185, 151, 246, 0.94));
+      box-shadow: 0 8px 20px rgba(142, 209, 194, 0.26);
+    }
+
+    .toggle-btn {
+      position: relative;
+      z-index: 1;
+      appearance: none;
+      border: none;
+      background: transparent;
+      padding: 16px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--muted);
+      transition: color 180ms ease, transform 180ms ease;
+      font-family: inherit;
+    }
+
+    .toggle-btn[aria-pressed="true"] {
+      color: #fff9f2;
+    }
+
+    .toggle-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .viewer {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 34px;
+    }
+
+    .panels {
+      display: flex;
+      width: 200%;
+      transform: translateX(0%);
+      transition: transform var(--transition);
+    }
+
+    .viewer.personal .panels {
+      transform: translateX(-50%);
+    }
+
+    .panel {
+      width: 50%;
+      min-height: 820px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1), transparent 24%);
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-card {
+      grid-column: span 6;
+      background: var(--panel-strong);
+      border: 1px solid rgba(162, 101, 43, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(120, 66, 15, 0.06);
+    }
+
+    .section-card.full {
+      grid-column: 1 / -1;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .card-title-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(243,177,63,0.18), rgba(239,125,87,0.12));
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .personal .card-title-icon {
+      background: linear-gradient(135deg, rgba(142,209,194,0.22), rgba(185,151,246,0.15));
+      color: #6c5bb7;
+    }
+
+    .card-title h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead-line {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid rgba(239, 125, 87, 0.18);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(243, 177, 63, 0.16);
+    }
+
+    .timeline-item h4,
+    .mini-card h4 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .meta {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .timeline-item p,
+    .mini-card p,
+    .list li,
+    .tagline,
+    .fun-fact {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.96rem;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(243, 177, 63, 0.14);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .personal .skill {
+      background: rgba(142, 209, 194, 0.22);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(162, 101, 43, 0.08);
+      border-radius: 18px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .highlight-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .highlight {
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(255,255,255,0.72));
+      border: 1px solid rgba(162,101,43,0.08);
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+    }
+
+    .quote-box {
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72));
+      border: 1px solid rgba(162,101,43,0.08);
+    }
+
+    .quote-box p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-note {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .section-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-topline h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--muted);
+      background: rgba(255,255,255,0.8);
+    }
+
+    .personal-accent {
+      background: linear-gradient(135deg, rgba(142,209,194,0.2), rgba(185,151,246,0.12));
+    }
+
+    .professional-accent {
+      background: linear-gradient(135deg, rgba(243,177,63,0.18), rgba(239,125,87,0.12));
+    }
+
+    @media (max-width: 1080px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .section-card {
+        grid-column: span 12;
+      }
+
+      .highlight-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-shell {
+        padding: 18px 14px 32px;
+      }
+
+      .hero-card,
+      .profile-card,
+      .panel {
+        padding: 20px;
+      }
+
+      .toggle-zone {
+        padding: 12px;
+      }
+
+      .toggle-btn {
+        font-size: 0.92rem;
+        padding: 14px 10px;
+      }
+
+      .panel {
+        min-height: auto;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-topline {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .decorative-sun {
+        width: 94px;
+        height: 94px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="decorative-sun"></div>
+    <div class="decorative-wave">अ</div>
+    <div class="decorative-bindi">●</div>
+    <div class="decorative-note">♪</div>
+
+    <header class="hero">
+      <section class="hero-card">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Computational Linguistics × Language × Storytelling
+        </div>
+        <h1>
+          I build with <span class="gradient-word">language</span>,
+          research, and human curiosity.
+        </h1>
+        <p class="hero-copy">
+          I’m Neeraja — a computational linguistics graduate student with a background in Sanskrit,
+          technical writing, and language-centered problem solving. I care about clear communication,
+          thoughtful design, and building tools that make language more usable, more accessible, and more human.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">NLP & Language Tech</span>
+          <span class="pill">Technical Writing</span>
+          <span class="pill">Linguistics</span>
+          <span class="pill">Research-minded</span>
+          <span class="pill">Creative & Structured</span>
+        </div>
+      </section>
+
+      <aside class="profile-card hero-card">
+        <div class="photo-frame">
+          <div class="photo-placeholder">
+            Add your photo here<br />
+            Replace this block with an <code>&lt;img&gt;</code> tag
+          </div>
+        </div>
+
+        <div class="name-block">
+          <h2>Neeraja Prabhudesai</h2>
+          <p>
+            Language lover, builder, researcher, and Bharatanatyam dancer.<br />
+            Based in Seattle.
+          </p>
+        </div>
+
+        <div class="icon-links" aria-label="Social links">
+          <a class="icon-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-12h4v2"/>
+              <rect x="2" y="9" width="4" height="12" rx="1"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a class="icon-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 19c-4 1.2-4-2-6-2m12 4v-3.1a3.4 3.4 0 0 0-.94-2.64c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 0 0-1.5-3.76 5.07 5.07 0 0 0-.09-3.77s-1.18-.35-3.91 1.48a13.44 13.44 0 0 0-7 0C5.27.72 4.09 1.07 4.09 1.07A5.07 5.07 0 0 0 4 4.84 5.44 5.44 0 0 0 2.5 8.6c0 5.42 3.3 6.61 6.44 7A3.4 3.4 0 0 0 8 18.24V21"/>
+            </svg>
+          </a>
+          <a class="icon-link" href="mailto:yourname@email.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M4 7l8 6 8-6"/>
+            </svg>
+          </a>
+          <a class="icon-link" href="#" aria-label="Resume">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/>
+              <path d="M14 2v5h5"/>
+              <path d="M9 13h6"/>
+              <path d="M9 17h6"/>
+              <path d="M9 9h2"/>
+            </svg>
+          </a>
+        </div>
+      </aside>
+    </header>
+
+    <div class="toggle-zone">
+      <div class="toggle-track" id="toggleTrack">
+        <div class="toggle-thumb"></div>
+        <button class="toggle-btn" id="professionalBtn" aria-pressed="true" type="button">
+          Professional Side
+        </button>
+        <button class="toggle-btn" id="personalBtn" aria-pressed="false" type="button">
+          Personal Side
+        </button>
+      </div>
+    </div>
+
+    <main class="viewer" id="viewer">
+      <div class="panels">
+        <section class="panel professional" aria-label="Professional panel">
+          <div class="section-topline">
+            <h2>What I bring professionally</h2>
+            <span class="section-chip professional-accent">Language + Research + Communication</span>
+          </div>
+
+          <div class="panel-grid">
+            <article class="section-card full">
+              <div class="card-title">
+                <div class="card-title-icon">✦</div>
+                <h3>Professional snapshot</h3>
+              </div>
+              <p class="lead-line">
+                I work at the intersection of computational linguistics, language analysis, and clear technical communication.
+                My interests include NLP, language technology, linguistic data, evaluation, and building user-centered systems that make complex ideas easier to understand.
+              </p>
+              <div class="highlight-band">
+                <div class="highlight">
+                  <strong>Language-first</strong>
+                  <span class="tagline">I enjoy working on problems where language, meaning, and structure matter.</span>
+                </div>
+                <div class="highlight">
+                  <strong>Research-minded</strong>
+                  <span class="tagline">I like exploring questions carefully, organizing information, and turning it into something useful.</span>
+                </div>
+                <div class="highlight">
+                  <strong>Communication-driven</strong>
+                  <span class="tagline">I value writing, documentation, and explanations that help others move faster.</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="section-card">
+              <div class="card-title">
+                <div class="card-title-icon">⌘</div>
+                <h3>Experience</h3>
+              </div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h4>Technical Writer</h4>
+                  <span class="meta">Sagitec Solutions · Pune, India</span>
+                  <p>
+                    Created technical documentation, collaborated with engineering teams, and translated complex system behavior into clear user-facing content.
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Language / NLP Projects</h4>
+                  <span class="meta">Academic + personal work</span>
+                  <p>
+                    Worked on ideas around Sanskrit, computational linguistics, linguistic analysis, and language-focused technology projects.
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Research & Coursework</h4>
+                  <span class="meta">Graduate-level exploration</span>
+                  <p>
+                    Built foundations in syntax, NLP, evaluation, phonetics, and computational approaches to language.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="section-card">
+              <div class="card-title">
+                <div class="card-title-icon">◎</div>
+                <h3>Education</h3>
+              </div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h4>M.S. in Computational Linguistics</h4>
+                  <span class="meta">University of Washington</span>
+                  <p>
+                    Focused on language technology, linguistics, machine learning foundations, evaluation, and human-centered language systems.
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <h4>M.A. in Sanskrit</h4>
+                  <span class="meta">India</span>
+                  <p>
+                    Built deep grounding in language structure, grammar, classical texts, and linguistic sensitivity.
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <h4>B.E. in Mechanical Engineering</h4>
+                  <span class="meta">India</span>
+                  <p>
+                    Gained analytical thinking, structured problem solving, and interdisciplinary adaptability.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="section-card full">
+              <div class="card-title">
+                <div class="card-title-icon">∞</div>
+                <h3>Skills & interests</h3>
+              </div>
+              <div class="skill-cloud">
+                <span class="skill">Python</span>
+                <span class="skill">NLP</span>
+                <span class="skill">Linguistic Analysis</span>
+                <span class="skill">Technical Documentation</span>
+                <span class="skill">Research Writing</span>
+                <span class="skill">Language Data</span>
+                <span class="skill">Syntax & Semantics</span>
+                <span class="skill">Computational Linguistics</span>
+                <span class="skill">Cross-functional Collaboration</span>
+                <span class="skill">Sanskrit</span>
+              </div>
+            </article>
+
+            <article class="section-card full">
+              <div class="card-title">
+                <div class="card-title-icon">→</div>
+                <h3>What I’m looking for</h3>
+              </div>
+              <p class="lead-line">
+                I’m especially interested in internships and roles where I can contribute to language technology, NLP, technical writing, documentation, evaluation, or communication-heavy product work — ideally in environments where curiosity, clarity, and interdisciplinary thinking are valued.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel personal" aria-label="Personal panel">
+          <div class="section-topline">
+            <h2>What makes me, me</h2>
+            <span class="section-chip personal-accent">Warm, curious, creative, and multilingual</span>
+          </div>
+
+          <div class="panel-grid">
+            <article class="section-card full">
+              <div class="card-title">
+                <div class="card-title-icon">❋</div>
+                <h3>Personal bio</h3>
+              </div>
+              <p class="lead-line">
+                Outside coursework and projects, I’m someone who genuinely loves language, culture, rhythm, and expression. I’m drawn to things that have both structure and beauty — whether that is a sentence, a dance form, a well-designed interface, or a thoughtful conversation.
+              </p>
+              <div class="quote-box">
+                <p>
+                  I like spaces where logic and creativity meet. That’s why I’m equally excited by linguistics, writing, Indian classical dance, and the tiny details that make communication feel alive.
+                </p>
+              </div>
+            </article>
+
+            <article class="section-card">
+              <div class="card-title">
+                <div class="card-title-icon">♫</div>
+                <h3>When I’m not coding</h3>
+              </div>
+              <div class="mini-grid">
+                <div class="mini-card">
+                  <h4>Dance</h4>
+                  <p>Bharatanatyam gives me discipline, expression, rhythm, and presence.</p>
+                </div>
+                <div class="mini-card">
+                  <h4>Languages</h4>
+                  <p>I enjoy exploring languages, scripts, meanings, and how people express ideas.</p>
+                </div>
+                <div class="mini-card">
+                  <h4>Culture & learning</h4>
+                  <p>I’m curious about traditions, stories, art, and the human side of knowledge.</p>
+                </div>
+                <div class="mini-card">
+                  <h4>Quiet joys</h4>
+                  <p>I appreciate walks, beautiful places, thoughtful writing, and meaningful conversations.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="section-card">
+              <div class="card-title">
+                <div class="card-title-icon">◌</div>
+                <h3>Things I enjoy</h3>
+              </div>
+              <div class="skill-cloud">
+                <span class="skill">Indian Classical Dance</span>
+                <span class="skill">Linguistics</span>
+                <span class="skill">Sanskrit</span>
+                <span class="skill">Marathi</span>
+                <span class="skill">Exploring Museums</span>
+                <span class="skill">Beautiful Cafés</span>
+                <span class="skill">Nature Walks</span>
+                <span class="skill">Language Learning</span>
+                <span class="skill">Design Details</span>
+                <span class="skill">Storytelling</span>
+              </div>
+            </article>
+
+            <article class="section-card full">
+              <div class="card-title">
+                <div class="card-title-icon">☼</div>
+                <h3>Fun facts</h3>
+              </div>
+              <ul class="list">
+                <li>I love the meeting point between language and technology.</li>
+                <li>I’m drawn to projects that feel both useful and meaningful.</li>
+                <li>I enjoy balancing precision with creativity.</li>
+                <li>I can happily talk about linguistics, Sanskrit, UI details, and dance aesthetics in the same conversation.</li>
+              </ul>
+            </article>
+
+            <article class="section-card full">
+              <div class="card-title">
+                <div class="card-title-icon">✿</div>
+                <h3>A little more about my style</h3>
+              </div>
+              <p class="lead-line">
+                I like warm energy, clean structure, and personality in design. I believe professional does not have to mean dull, and creative does not have to mean chaotic. The sweet spot is somewhere in between — bright, thoughtful, and memorable.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <p class="footer-note">
+      Built to feel like two sides of one story — the work I do, and the person behind it.
+    </p>
+  </div>
+
+  <script>
+    const viewer = document.getElementById('viewer');
+    const track = document.getElementById('toggleTrack');
+    const professionalBtn = document.getElementById('professionalBtn');
+    const personalBtn = document.getElementById('personalBtn');
+
+    function setView(mode) {
+      const isPersonal = mode === 'personal';
+      viewer.classList.toggle('personal', isPersonal);
+      track.classList.toggle('personal', isPersonal);
+      professionalBtn.setAttribute('aria-pressed', String(!isPersonal));
+      personalBtn.setAttribute('aria-pressed', String(isPersonal));
+    }
+
+    professionalBtn.addEventListener('click', () => setView('professional'));
+    personalBtn.addEventListener('click', () => setView('personal'));
+  </script>
+</body>
+</html>
