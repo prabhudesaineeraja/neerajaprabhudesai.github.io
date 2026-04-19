@@ -225,7 +225,7 @@ h1 {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
 }
 
 .name-block h2 {
